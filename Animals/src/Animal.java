@@ -63,6 +63,13 @@ public class Animal implements Comparable<Animal>{
         System.out.println(animals);
     }
 
+    // public int getCountOfAnimals() {
+    //     int count = 0;
+    //     for (Animal animal : animals){
+    //         animal.getType.equals
+    //     }
+    // }
+
     @Override
     public int compareTo(Animal animal) {
         return getBirthday().compareTo(animal.getBirthday());

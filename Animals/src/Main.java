@@ -16,7 +16,7 @@ public class Main {
         animalRegistry.addNewAnimal(newAnimal);
         newAnimal.addNewCommand();
         newAnimal.printCommands();
-        System.out.println(newAnimal);
+        System.out.println("\n" + newAnimal + "\n");
         
         ArrayList<String> catCommands = new ArrayList<>();
         catCommands.add("bark, stay");
@@ -62,19 +62,22 @@ public class Main {
        
         animalRegistry.printAllAnimal();
         System.out.println("Total number of animals in the registry: " + animalRegistry.getTotalAnimals());
+               
         
-
         if (newAnimal.getType().equals("cat")){
             cats.add(newAnimal);
             System.out.println(cats);
+            System.out.println("Number of cats" + cats.size());
         }
         else if (newAnimal.getType().equals("dog")){
             dogs.add(newAnimal);
             System.out.println(dogs);
+            System.out.println("Number of dogs" + dogs.size());
         }
         else {
             hamsters.add(newAnimal);
             System.out.println(hamsters);
+            System.out.println("Number of hamsters" + hamsters.size());
         }
 
         animalRegistry.sortAnimalsByBirthday();
@@ -82,7 +85,7 @@ public class Main {
         for (Animal animal : animalRegistry.animals) {
             System.out.println(animal);
         }
-        
+
         // String fileName = "Animals";
         // try (FileWriter fileWriter = new FileWriter(Paths.get(fileName).toFile(), true)) {
         //     BufferedReader br = new BufferedReader(new FileReader(fileName));
