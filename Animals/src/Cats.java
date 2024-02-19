@@ -1,4 +1,4 @@
-// import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class Cats extends Animal {
     private int id;
@@ -6,11 +6,11 @@ public class Cats extends Animal {
     public Cats() {
     }
 
-    public Cats(String type, String name, String birthday, String commands) {
+    public Cats(String type, String name, String birthday, ArrayList<String> commands) {
         super(type, name, birthday, commands);
     }
 
-    public Cats(String type, String name, String birthday, String commands, int id) {
+    public Cats(String type, String name, String birthday, ArrayList<String> commands, int id) {
         super(type, name, birthday, commands);
         this.id = id;
     }

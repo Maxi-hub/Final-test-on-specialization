@@ -1,12 +1,13 @@
+import java.util.ArrayList;
 
 public class Dogs extends Animal {
     private int id;
 
-    public Dogs(String type, String name, String birthday, String commands) {
+    public Dogs(String type, String name, String birthday, ArrayList<String> commands) {
         super(type, name, birthday, commands);
     }
 
-    public Dogs(String type, String name, String birthday, String commands, int id) {
+    public Dogs(String type, String name, String birthday, ArrayList<String> commands, int id) {
         super(type, name, birthday, commands);
         this.id = id;
     }
