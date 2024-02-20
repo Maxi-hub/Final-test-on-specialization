@@ -1,10 +1,8 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-
 
 public class Main {
 
@@ -17,7 +15,7 @@ public class Main {
         newAnimal.addNewCommand();
         newAnimal.printCommands();
         System.out.println("\n" + newAnimal + "\n");
-        
+
         ArrayList<String> catCommands = new ArrayList<>();
         catCommands.add("bark, stay");
         ArrayList<Animal> cats = new ArrayList<Animal>();
@@ -30,7 +28,6 @@ public class Main {
         animalRegistry.addNewAnimal(newCat_1);
         animalRegistry.addNewAnimal(newCat_2);
         animalRegistry.addNewAnimal(newCat_3);
-        
 
         ArrayList<String> dogCommands = new ArrayList<>();
         dogCommands.add("bark, stay");
@@ -44,7 +41,6 @@ public class Main {
         animalRegistry.addNewAnimal(newDog_1);
         animalRegistry.addNewAnimal(newDog_2);
         animalRegistry.addNewAnimal(newDog_3);
-        
 
         ArrayList<String> hamsterCommands = new ArrayList<>();
         hamsterCommands.add("sleep, eat");
@@ -58,45 +54,38 @@ public class Main {
         animalRegistry.addNewAnimal(newHamster_1);
         animalRegistry.addNewAnimal(newHamster_2);
         animalRegistry.addNewAnimal(newHamster_3);
-        
-       
+
+        int catCount = animalRegistry.countAnimalByType("cat");
+        System.out.println("Count of cats: " + catCount);
+        int dogCount = animalRegistry.countAnimalByType("dog");
+        System.out.println("Count of dogs: " + dogCount);
+        int hamsterCount = animalRegistry.countAnimalByType("hamster");
+        System.out.println("Count of hamsters: " + hamsterCount);
+        System.out
+                .println("\n" + "Total number of animals in the registry: " + animalRegistry.getTotalAnimals() + "\n");
         animalRegistry.printAllAnimal();
-        System.out.println("Total number of animals in the registry: " + animalRegistry.getTotalAnimals());
-               
-        
-        if (newAnimal.getType().equals("cat")){
-            cats.add(newAnimal);
-            System.out.println(cats);
-            System.out.println("Number of cats" + cats.size());
-        }
-        else if (newAnimal.getType().equals("dog")){
-            dogs.add(newAnimal);
-            System.out.println(dogs);
-            System.out.println("Number of dogs" + dogs.size());
-        }
-        else {
-            hamsters.add(newAnimal);
-            System.out.println(hamsters);
-            System.out.println("Number of hamsters" + hamsters.size());
-        }
 
-        animalRegistry.sortAnimalsByBirthday();
-        System.out.println("\n" + "List of animals sorted by birthday:");
-        for (Animal animal : animalRegistry.animals) {
-            System.out.println(animal);
+        String fileName = "Animals";
+        try (FileWriter fileWriter = new FileWriter(Paths.get(fileName).toFile(), true)) {
+            BufferedReader br = new BufferedReader(new FileReader(fileName));
+            br.readLine();
+            fileWriter.append("\n");
+                      
+            if (newAnimal.getType().equals("cat")) {
+                cats.add(newAnimal);
+            } else if (newAnimal.getType().equals("dog")) {
+                dogs.add(newAnimal);
+            } else {
+                hamsters.add(newAnimal);
+            }
+
+            animalRegistry.sortAnimalsByBirthday();
+            System.out.println("\n" + "List of animals sorted by birthday:");
+            for (Animal animal : animalRegistry.animals) {
+                System.out.println(animal);
+                fileWriter.write(animal.toString());
+            }
+
         }
-
-        // String fileName = "Animals";
-        // try (FileWriter fileWriter = new FileWriter(Paths.get(fileName).toFile(), true)) {
-        //     BufferedReader br = new BufferedReader(new FileReader(fileName));
-        //     br.readLine();
-        //     fileWriter.write(animalRegistry); 
-        //     fileWriter.append("\n");
-        // }
-        // catch (IOException e) {
-        //     System.out.println("Error reading data from file: " + fileName);
-        // }
-
-        
-    }   
+    }
 }

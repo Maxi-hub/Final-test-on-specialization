@@ -1,26 +1,39 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-
 public class AnimalRegistry {
-   
+
     ArrayList<Animal> animals;
 
     public AnimalRegistry() {
         this.animals = new ArrayList<>();
     }
 
-    public void addNewAnimal(Animal animal){
+    public ArrayList<Animal> getAnimals() {
+        return animals;
+    }
+
+    public void addNewAnimal(Animal animal) {
         animals.add(animal);
     }
 
-    public void printAllAnimal(){
+    public void printAllAnimal() {
         System.out.println("Registry of animals: ");
-        for(Animal animal : animals) {
+        for (Animal animal : animals) {
             System.out.println(animal);
         }
     }
-    
+
+    public int countAnimalByType(String type) {
+        int count = 0;
+        for (Animal animal : animals) {
+            if (animal.getType().equals(type)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
     public int getTotalAnimals() {
         return animals.size();
     }
@@ -28,6 +41,4 @@ public class AnimalRegistry {
     public void sortAnimalsByBirthday() {
         Collections.sort(animals);
     }
-    
 }
-
