@@ -59,25 +59,14 @@ public class Animal implements Comparable<Animal> {
     }
 
     public void printCommands() {
-        System.out.println("Commands for " + this.name + ":");
-        for (String command : commands) {
-            System.out.println(command);
-        }
+        System.out.println("Commands for " + this.name + ": " + commands);
     }
 
     public void printAnimal() {
         System.out.println(animals);
     }
 
-    // public int getCountOfAnimals(Object o) {
-    // int line = 0;
-    // for (Animal animal : animals){
-    // System.out.println(animal.getType().equals(o));
-    // line ++;
-    // }
-    // return line;
-    // }
-
+    
     @Override
     public int compareTo(Animal animal) {
         return getBirthday().compareTo(animal.getBirthday());

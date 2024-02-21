@@ -1,6 +1,9 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
@@ -11,7 +14,6 @@ public class Main {
         AnimalRegistry animalRegistry = new AnimalRegistry();
 
         Animal newAnimal = Pets.getNewAnimal();
-        animalRegistry.addNewAnimal(newAnimal);
         newAnimal.addNewCommand();
         newAnimal.printCommands();
         System.out.println("\n" + newAnimal + "\n");
@@ -55,6 +57,15 @@ public class Main {
         animalRegistry.addNewAnimal(newHamster_2);
         animalRegistry.addNewAnimal(newHamster_3);
 
+        if (newAnimal.getType().equals("cat")) {
+            cats.add(newAnimal);
+        } else if (newAnimal.getType().equals("dog")) {
+            dogs.add(newAnimal);
+        } else {
+            hamsters.add(newAnimal);
+        }
+
+        animalRegistry.addNewAnimal(newAnimal);
         int catCount = animalRegistry.countAnimalByType("cat");
         System.out.println("Count of cats: " + catCount);
         int dogCount = animalRegistry.countAnimalByType("dog");
@@ -67,25 +78,38 @@ public class Main {
 
         String fileName = "Animals";
         try (FileWriter fileWriter = new FileWriter(Paths.get(fileName).toFile(), true)) {
-            BufferedReader br = new BufferedReader(new FileReader(fileName));
-            br.readLine();
-            fileWriter.append("\n");
-                      
-            if (newAnimal.getType().equals("cat")) {
-                cats.add(newAnimal);
-            } else if (newAnimal.getType().equals("dog")) {
-                dogs.add(newAnimal);
-            } else {
-                hamsters.add(newAnimal);
-            }
-
-            animalRegistry.sortAnimalsByBirthday();
-            System.out.println("\n" + "List of animals sorted by birthday:");
-            for (Animal animal : animalRegistry.animals) {
-                System.out.println(animal);
-                fileWriter.write(animal.toString());
-            }
-
+            fileWriter.append(newAnimal.toString() + "\n");
+            fileWriter.close();
         }
+
+        animalRegistry.sortAnimalsByBirthday();
+        System.out.println("\n" + "List of animals sorted by birthday:");
+        for (Animal animal : animalRegistry.animals) {
+            System.out.println(animal);
+        }
+
+
+        File myFile = new File("myfile.txt");
+        myFile.createNewFile();
+
+        try (PrintWriter pw = new PrintWriter(myFile)) {
+            pw.println(animalRegistry);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // FileInputStream inputStream = new FileInputStream(myFile);
+        // byte[] buffer = new byte[1024];
+        // int bytesRead;
+        // while ((bytesRead = inputStream.read(buffer)) != -1) {
+        //     System.out.print(new String(buffer, 0, bytesRead));
+        // }
+        // inputStream.close();
+
+        // FileOutputStream outputStream = new FileOutputStream(myFile, true);
+        // buffer = newAnimal.toString().getBytes();
+        // outputStream.write(buffer);
+        // outputStream.close();
+
     }
 }
