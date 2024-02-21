@@ -1,4 +1,0 @@
-
-AnimalRegistry [animals=[Cat {type: cat, name: Suzy, birthday: 2020-11-11, commands: [bark, stay]}, Cat {type: cat, name: Tom, birthday: 2022-11-11, commands: [bark, stay]}, Cat {type: cat, name: Jary, birthday: 2019-11-11, commands: [bark, stay]}, Dog {type: dog, name: Tom, birthday: 2002-01-01, commands: [bark, stay]}, Dog {type: dog, name: Bobby, birthday: 2002-02-02, commands: [bark, stay]}, Dog {type: dog, name: Rex, birthday: 2002-03-03, commands: [bark, stay]}, Hamster {type: hamster, name: Bob, birthday: 2003-01-01, commands: [sleep, eat]}, Hamster {type: hamster, name: Sam, birthday: 2003-02-02, commands: [sleep, eat]}, Hamster {type: hamster, name: Lory, birthday: 2003-03-03, commands: [sleep, eat]}, Cat {type: cat, name: Sammy, birthday: 2019-08-08, commands: [play, do]}]]
-
-Dog {type: dog, name: Donny, birthday: 2020-20-04, commands: [play, stop]}
