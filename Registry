@@ -1,2 +1,42 @@
-[Cat {type: cat, name: Suzy, birthday: 2020-11-11, commands: [bark, stay]}, Cat {type: cat, name: Tom, birthday: 2022-11-11, commands: [bark, stay]}, Cat {type: cat, name: Jary, birthday: 2019-11-11, commands: [bark, stay]}, Dog {type: dog, name: Tom, birthday: 2002-01-01, commands: [bark, stay]}, Dog {type: dog, name: Bobby, birthday: 2002-02-02, commands: [bark, stay]}, Dog {type: dog, name: Rex, birthday: 2002-03-03, commands: [bark, stay]}, Hamster {type: hamster, name: Bob, birthday: 2003-01-01, commands: [sleep, eat]}, Hamster {type: hamster, name: Sam, birthday: 2003-02-02, commands: [sleep, eat]}, Hamster {type: hamster, name: Lory, birthday: 2003-03-03, commands: [sleep, eat]}]
-Cat {type: cat, name: Lory, birthday: 2022-12-12, commands: [play, go]}
+Cat {type: cat, name: Suzy, birthday: 2020-11-11, commands: [play, run]}
+Cat {type: cat, name: Tom, birthday: 2022-11-11, commands: [play, run]}
+Cat {type: cat, name: Jary, birthday: 2019-11-11, commands: [play, run]}
+Dog {type: dog, name: Tom, birthday: 2002-01-01, commands: [bark, seat]}
+Dog {type: dog, name: Bobby, birthday: 2002-02-02, commands: [bark, seat]}
+Dog {type: dog, name: Rex, birthday: 2002-03-03, commands: [bark, seat]}
+Hamster {type: hamster, name: Bob, birthday: 2003-01-01, commands: [sleep, eat]}
+Hamster {type: hamster, name: Sam, birthday: 2003-02-02, commands: [sleep, eat]}
+Hamster {type: hamster, name: Lory, birthday: 2003-03-03, commands: [sleep, eat]}
+Count of cats: 0
+Count of dogs: 0
+Count of hamsters: 0
+
+Cat {type: cat, name: Sam, birthday: 2020-09-09, commands: [play, stop]}
+Count of cats: 4
+Count of dogs: 3
+Count of hamsters: 3
+
+Cat {type: cat, name: Fill, birthday: 2018-12-12, commands: [go, run]}
+Count of cats: 5
+Count of dogs: 3
+Count of hamsters: 3
+
+Hamster {type: hamster, name: Yes, birthday: 2017-12-12, commands: [play, run]}
+Count of cats: 5
+Count of dogs: 3
+Count of hamsters: 4
+
+Dog {type: dog, name: Frank, birthday: 2017-05-05, commands: [go, stop]}
+Count of cats: 5
+Count of dogs: 4
+Count of hamsters: 4
+
+Dog {type: dog, name: Hotty, birthday: 2017-03-04, commands: [run, sleep]}
+Count of cats: 5
+Count of dogs: 5
+Count of hamsters: 4
+
+Dog {type: dog, name: Tony, birthday: 2018-11-12, commands: [up, down]}
+Count of cats: 5
+Count of dogs: 6
+Count of hamsters: 4
