@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AnimalManager {
-    private int catCount = 0; // listOfCats().size();
-    private int dogCount = 0; // listOfDogs().size();
-    private int hamsterCount = 0; // listOfHamsters().size();
+    private int catCount = 0; 
+    private int dogCount = 0; 
+    private int hamsterCount = 0;
 
     public ArrayList<Animal> listOfCats() {
         ArrayList<String> catCommands = new ArrayList<>();
