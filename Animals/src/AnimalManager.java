@@ -5,13 +5,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.Arrays;
 
 public class AnimalManager {
     private int catCount = 0; // listOfCats().size();
     private int dogCount = 0; // listOfDogs().size();
     private int hamsterCount = 0; // listOfHamsters().size();
-    
 
     public ArrayList<Animal> listOfCats() {
         ArrayList<String> catCommands = new ArrayList<>();
@@ -81,12 +80,10 @@ public class AnimalManager {
         }
     }
 
-
     public void ReadFromFile(File fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = br.readLine()) != null) {
-                // Обработка данных: увеличение счетчиков для каждого типа животных
                 if (line.contains("Cat")) {
                     catCount++;
                 } else if (line.contains("Dog")) {
@@ -95,7 +92,36 @@ public class AnimalManager {
                     hamsterCount++;
                 }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    public void ReadFromFileAfter(File fileName) {
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            AnimalRegistry animalRegistry = new AnimalRegistry();
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 4) {
+                    String type = parts[0];
+                    String name = parts[1];
+                    String birthday = parts[2];
+                    ArrayList<String> commands = new ArrayList<>(Arrays.asList(parts).subList(3,
+                            parts.length));
+                    animalRegistry.addNewAnimal(new Animal(type, name, birthday, commands));
+                }
+            }
+            System.out.println("Registry of animals: ");
+            for (Animal animal : animalRegistry.getAnimals()) {
+                System.out.println(animal.getType() + animal.getName() + animal.getBirthday() + animal.getCommands());
+            }
+            animalRegistry.sortAnimalsByBirthday();
+            System.out.println("\n" + "List of animals sorted by birthday: ");
+            for (Animal animal : animalRegistry.getAnimals()) {
+                System.out.println(animal.getType() + animal.getName() + animal.getBirthday() + animal.getCommands());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -104,10 +130,10 @@ public class AnimalManager {
     public void addAnimal(File fileName, String type, Animal newAnimal) {
         try {
             BufferedWriter br = new BufferedWriter(new FileWriter(fileName, true));
-            br.newLine();
             newAnimal.addNewCommand();
+            System.out.println("--------------------------");
+            System.out.println(newAnimal);
             newAnimal.printCommands();
-            System.out.println("\n" + newAnimal + "\n");
             if (type.equals("cat")) {
                 catCount++;
             } else if (type.equals("dog")) {
@@ -126,24 +152,12 @@ public class AnimalManager {
             BufferedWriter br = new BufferedWriter(new FileWriter(fileName, true));
             int totalAnimals = (catCount + dogCount + hamsterCount);
             animalRegistry.addNewAnimal(newAnimal);
-            br.append(newAnimal.toString() + "\n");
-            br.append("Count of cats: " + catCount);
-            System.out.println("Cats: " + catCount);
             br.newLine();
-            br.append("Count of dogs: " + dogCount);
-            System.out.println("Dogs: " + dogCount);
-            br.newLine();
-            br.append("Count of hamsters: " + hamsterCount);
-            System.out.println("Hamsters: " + hamsterCount);
-            br.newLine();
-            System.out.println(
-                    "\n" + "Total number of animals in the registry: " + totalAnimals + "\n");
-            animalRegistry.printAllAnimal();
-            animalRegistry.sortAnimalsByBirthday();
-            System.out.println("\n" + "List of animals sorted by birthday: ");
-            for (Animal animal : animalRegistry.animals) {
-                System.out.println(animal);
-            }
+            br.append(newAnimal.toString());
+            System.out.println("Count of cats: " + catCount);
+            System.out.println("Count of dogs: " + dogCount);
+            System.out.println("Count of hamsters: " + hamsterCount);
+            System.out.println("Total number of animals in the registry: " + totalAnimals + "\n");
             br.close();
         } catch (IOException e) {
             e.printStackTrace();

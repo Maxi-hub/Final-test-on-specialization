@@ -8,13 +8,16 @@ public class AnimalRegistry {
         this.animals = new ArrayList<>();
     }
 
+
     public ArrayList<Animal> getAnimals() {
         return animals;
     }
 
+
     public void addNewAnimal(Animal animal) {
         animals.add(animal);
     }
+
 
     public void printAllAnimal() {
         System.out.println("Registry of animals: ");
@@ -46,4 +49,6 @@ public class AnimalRegistry {
     public String toString() {
         return "AnimalRegistry [animals=" + animals + "]";
     }
+
+
 }

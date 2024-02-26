@@ -30,7 +30,7 @@ public class Main {
         animalManager.ReadFromFile(newFile);
         animalManager.addAnimal(newFile, newAnimal.getType(), newAnimal);
         animalManager.WriteToFile(newFile, animalRegistry, newAnimal);
-        
-             
+        animalManager.ReadFromFileAfter(newFile);
+                    
     }
 }

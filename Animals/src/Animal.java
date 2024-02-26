@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Animal implements Comparable<Animal> {
@@ -66,12 +67,12 @@ public class Animal implements Comparable<Animal> {
         System.out.println(animals);
     }
 
-    
     @Override
     public int compareTo(Animal animal) {
         return getBirthday().compareTo(animal.getBirthday());
     }
 
+ 
     @Override
     public String toString() {
         return "Animal {type: " + getType() + ", name: " + getName() + ", birthday: "
